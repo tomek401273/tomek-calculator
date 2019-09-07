@@ -3,12 +3,23 @@
  */
 package calculator;
 
-public class App {
-    public String getGreeting() {
-        return "Hello world.";
-    }
+import calculator.calc.Machine;
+import calculator.library.LibraryOperators;
+import calculator.order.IInstructionSet;
+import calculator.order.InstructionFactory;
+import calculator.order.InstructionSet;
 
-    public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class App {
+    public static void main(String[] args) throws IOException {
+        LibraryOperators libraryOperators= new LibraryOperators();
+        BufferedReader bufferedReader = new BufferedReader(new FileReader("/home/tomek/Documents/CV/storware/Calculator/src/main/resources/instructions.txt"));
+        IInstructionSet instructionSet = new InstructionSet(new InstructionFactory(), bufferedReader);
+        Machine machine = new Machine(libraryOperators, instructionSet);
+        int result = machine.calculate();
+        System.out.println(result);
     }
 }
