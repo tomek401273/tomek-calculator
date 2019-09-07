@@ -1,6 +1,8 @@
-package calculator.order;
+package calculator.instruction;
 
 import lombok.*;
+
+import java.math.BigDecimal;
 
 @Getter
 @Setter
@@ -8,9 +10,9 @@ import lombok.*;
 @ToString
 public class Instruction {
     private String name;
-    private int value;
+    private BigDecimal value;
 
-    public Instruction(String name, int value) {
+    public Instruction(String name, BigDecimal value) {
         this.name = name;
         this.value = value;
     }
@@ -23,11 +25,11 @@ public class Instruction {
         this.name = name;
     }
 
-    public int getValue() {
+    public BigDecimal getValue() {
         return value;
     }
 
-    public void setValue(int value) {
+    public void setValue(BigDecimal value) {
         this.value = value;
     }
 }

@@ -1,7 +1,7 @@
-package calculator.order;
+package calculator.instruction;
 
 import java.util.List;
 
-public interface IInstructionSet {
+public interface IInstructionFile {
     List<Instruction> getInstructions();
 }

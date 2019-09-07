@@ -9,11 +9,20 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.google.guava:guava:26.0-jre'
+//    implementation 'com.google.guava:guava:26.0-jre'
 
     compileOnly 'org.projectlombok:lombok:1.18.8'
     testImplementation 'junit:junit:4.12'
 
+    compile 'commons-cli:commons-cli:1.2'
+
 }
 
 mainClassName = 'calculator.App'
+
+run{
+    if (project.hasProperty("calcArgs")) {
+        args calcArgs.split('\\s+')
+
+    }
+}
