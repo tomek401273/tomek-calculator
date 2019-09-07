@@ -20,7 +20,7 @@ public class App {
         InstructionsFile instructionsFile = new InstructionsFile(new InstructionFactory(), fileLoader.getInstructionFile(args));
         Calculator calculator = new Calculator(libraryOperators, instructionsFile);
         BigDecimal result = calculator.calculate();
-        System.out.println(result);
+        System.out.println("result: "+result);
     }
 }
 
